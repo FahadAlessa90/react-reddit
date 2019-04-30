@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Article from './Article';
 
 class Reddit extends Component {
 
@@ -23,12 +24,7 @@ class Reddit extends Component {
     console.log(this.state.articles)
 
     const allArticles = this.state.articles.map((article, index) => {
-      return (
-        <div key={index}>
-          <img src={article.data.thumbnail} alt={article.data.title} />
-          <a href={article.data.url} target="_blank" rel="noopener noreferrer">{article.data.title}</a>
-        </div>
-      )
+      return <Article key={index} article={article.data} />
     })
 
 
