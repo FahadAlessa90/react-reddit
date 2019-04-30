@@ -21,9 +21,23 @@ class Reddit extends Component {
 
   render() {
     console.log(this.state.articles)
+
+    const allArticles = this.state.articles.map((article, index) => {
+      return (
+        <div key={index}>
+          <img src={article.data.thumbnail} alt={article.data.title} />
+          <a href={article.data.url} target="_blank" rel="noopener noreferrer">{article.data.title}</a>
+        </div>
+      )
+    })
+
+
     return (
       <div>
         <h1>Reddit Feed</h1>
+        <div>
+          {allArticles}
+        </div>
       </div>
     )
   }
