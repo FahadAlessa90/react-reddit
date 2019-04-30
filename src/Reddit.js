@@ -12,12 +12,15 @@ class Reddit extends Component {
         return response.json()
       })
       .then(articles => {
-        console.log(articles.data.children)
+        this.setState((prevState) => ({
+          articles: articles.data.children
+        }))
       })
 
   }
 
   render() {
+    console.log(this.state.articles)
     return (
       <div>
         <h1>Reddit Feed</h1>
